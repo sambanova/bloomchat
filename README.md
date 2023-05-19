@@ -119,12 +119,12 @@ Installing collected packages: transformers
 Successfully installed transformers-4.27.0
 ```
 
-Now let's git clone the huggingface/transformers-bloom-inference repo.
+Now let's git clone the [huggingface/transformers-bloom-inference](https://github.com/huggingface/transformers-bloom-inference) repo.
 ```
 git clone https://github.com/huggingface/transformers-bloom-inference.git
 cd transformers-bloom-inference/
 ```
-And then you need to modify two files in this transformers-bloom-inference repo:
+And then you need to modify two files in this [transformers-bloom-inference](https://github.com/huggingface/transformers-bloom-inference) repo:
 
 - Modifying `inference_server/models/hf_accelerate.py`
     - This is because for our testing of this repo we used 4 80GB A100 GPUs and would run into memory issues
