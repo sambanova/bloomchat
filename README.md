@@ -15,7 +15,7 @@ This repo contains the data preparation, tokenization, training and inference co
 We trained BLOOMChat on [SambaNova DataScale systems](https://sambanova.ai/products/datascale/) using SambaNova’s unique [Reconfigurable Dataflow Architecture](https://sambanova.ai/wp-content/uploads/2021/04/SambaNova_Accelerated-Computing-with-a-Reconfigurable-Dataflow-Architecture_Whitepaper_English.pdf) The training data used to train BLOOMChat originated from [OIG dataset from OpenChatKit](https://huggingface.co/datasets/laion/OIG), [Dolly 2.0](https://huggingface.co/datasets/databricks/databricks-dolly-15k), and [OASST1](https://huggingface.co/datasets/OpenAssistant/oasst1).
 
 
-## Additional Information
+## Basic Information
 
 - **Blog Post**: [More Information Needed]
 - **Discord**: [Link](https://discord.com/invite/8z2Pe7cpRv)
@@ -101,9 +101,8 @@ pip install --upgrade pip
 Please follow this section [Inference solutions for BLOOM 176B](https://github.com/huggingface/transformers-bloom-inference#bloom-inference-via-command-line) in the Huggingface Tutorial for environment set up and stop before the [BLOOM inference via command-line
 ](https://github.com/huggingface/transformers-bloom-inference#bloom-inference-via-command-line) section.
 
-For setup instructions follow the Huggingface tutorial.
+And then follow the following steps:
 
-NOTE: Things that we had to modify in order for BLOOMChat to work:
 - Install transformers version 4.27.0
     - `pip install transformers==4.27.0`
 - Change the model name from `bigscience/bloom` to `sambanovasystems/BLOOMChat-176B-v1`
