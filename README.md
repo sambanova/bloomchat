@@ -46,6 +46,8 @@ After running these commands there should be 2 files under the `data_prep` direc
 
 NOTE these files are referenced in the tokenization code, so when running the tokenization scripts they need to be done within `tokenization_prep` otherwise the file paths will need to be changed.
 
+**DISCLAIMER**: The OIG dataset preprocessed for BLOOMChat might not be 100% reproducible using [OIG dataset from OpenChatKit](https://huggingface.co/datasets/laion/OIG). We will update soon about the other steps necessary to reproduce the dataset.
+
 ### Dataset Tokenization
 
 The next step after preprocessing the data is to tokenize the data using [SambaNova's Generation Data Preparation](https://github.com/sambanova/generative_data_prep) repo. The scripts that utilize this public repository can be found under [tokenization prep](tokenization_prep).
