@@ -19,7 +19,7 @@ We trained BLOOMChat on [SambaNova DataScale systems](https://sambanova.ai/produ
 
 - **Blog Post**: [More Information Needed]
 - **Discord**: [Link](https://discord.com/invite/8z2Pe7cpRv)
-- **HF Hosting**: [More Information Needed]
+- **HF Hosting**: [Chat with me!](https://huggingface.co/spaces/sambanovasystems/BLOOMChat)
 - **BLOOMChat-176B-v1**: [Link](https://huggingface.co/sambanovasystems/BLOOMChat-176B-v1)
 
 ## Training Procedure
