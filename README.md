@@ -102,8 +102,13 @@ pip install --upgrade pip
 ](https://github.com/huggingface/transformers-bloom-inference#bloom-inference-via-command-line) section. -->
 
 ```
-pip install flask flask_api gunicorn pydantic accelerate huggingface_hub>=0.9.0 deepspeed>=0.7.3 deepspeed-mii==0.0.2 transformers==4.27.0
+pip install flask flask_api gunicorn pydantic accelerate huggingface_hub>=0.9.0 deepspeed>=0.7.3 deepspeed-mii==0.0.2
 ```
+And then
+```
+pip install transformers==4.27.0
+```
+
 You will see messages like this 
 ```
 ERROR: deepspeed-mii 0.0.2 has requirement transformers==4.21.2, but you'll have transformers 4.27.0 which is incompatible.
