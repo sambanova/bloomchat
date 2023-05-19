@@ -119,6 +119,7 @@ Installing collected packages: transformers
 Successfully installed transformers-4.27.0
 ```
 
+Now let's git clone the huggingface/transformers-bloom-inference repo.
 ```
 git clone https://github.com/huggingface/transformers-bloom-inference.git
 cd transformers-bloom-inference/
