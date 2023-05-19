@@ -90,8 +90,6 @@ NOTE: BLOOMChat is a two step process:
 
 ## Quick Start Inference on GPU
 
-[This tutorial](https://github.com/huggingface/transformers-bloom-inference) from Huggingface will be the base layer for running our model. The tutorial is intended for BLOOM; however, since our model is based off of BLOOM we can repurpose it.
-
 First create a python virtual environment for these packages
 
 ```
@@ -99,6 +97,9 @@ python3 -m venv bloomchat_venv
 source bloomchat_venv/bin/activate
 pip install --upgrade pip
 ```
+
+Please follow this section [Inference solutions for BLOOM 176B](https://github.com/huggingface/transformers-bloom-inference#bloom-inference-via-command-line) in the Huggingface Tutorial for environment set up and stop before the [BLOOM inference via command-line
+](https://github.com/huggingface/transformers-bloom-inference#bloom-inference-via-command-line) section.
 
 For setup instructions follow the Huggingface tutorial.
 
