@@ -170,14 +170,24 @@ index fc903d5..5450236 100644
 
 ```
 
-Running command for bf16
+Running command for bf16, NO sampling
 ```
-python -m inference_server.cli --model_name sambanovasystems/BLOOMChat-176B-v1 --model_class AutoModelForCausalLM --dtype bf16 --deployment_framework hf_accelerate --generate_kwargs '{"do_sample": false, "temperature": 0.8, "repetition_penalty": 1.2, "top_p": 0.9, "max_new_tokens": 512}'
+python -m inference_server.cli --model_name sambanovasystems/BLOOMChat-176B-v1 --model_class AutoModelForCausalLM --dtype bf16 --deployment_framework hf_accelerate --generate_kwargs '{"do_sample": false, "max_new_tokens": 512}'
 ```
-Running command for int8 (sub optimal performance, but fast inference time):
+Running command for bf16, YES sampling
 ```
-python -m inference_server.cli --model_name sambanovasystems/BLOOMChat-176B-v1 --model_class AutoModelForCausalLM --dtype int8 --deployment_framework hf_accelerate --generate_kwargs '{"do_sample": false, "temperature": 0.8, "repetition_penalty": 1.2, "top_p": 0.9, "max_new_tokens": 512}'
+python -m inference_server.cli --model_name sambanovasystems/BLOOMChat-176B-v1 --model_class AutoModelForCausalLM --dtype bf16 --deployment_framework hf_accelerate --generate_kwargs '{"do_sample": true, "temperature": 0.8, "repetition_penalty": 1.2, "top_p": 0.9, "max_new_tokens": 512}'
 ```
+---
+Running command for int8 (sub optimal performance, but fast inference time) NO sampling:
+```
+python -m inference_server.cli --model_name sambanovasystems/BLOOMChat-176B-v1 --model_class AutoModelForCausalLM --dtype int8 --deployment_framework hf_accelerate --generate_kwargs '{"do_sample": false, "max_new_tokens": 512}'
+```
+Running command for int8 (sub optimal performance, but fast inference time) YES sampling:
+```
+python -m inference_server.cli --model_name sambanovasystems/BLOOMChat-176B-v1 --model_class AutoModelForCausalLM --dtype int8 --deployment_framework hf_accelerate --generate_kwargs '{"do_sample": true, "temperature": 0.8, "repetition_penalty": 1.2, "top_p": 0.9, "max_new_tokens": 512}'
+```
+
 **DISCLAIMER:** When using int8, the results will be subpar compared to bf16 as the model is being [quantized](https://huggingface.co/blog/hf-bitsandbytes-integration#introduction-to-model-quantization).
 
 ### Suggested Inference Parameters
