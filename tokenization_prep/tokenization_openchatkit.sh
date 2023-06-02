@@ -11,4 +11,4 @@
 
 #!/bin/bash
 DATA_PREP_PYTHONPATH=$1
-PYTHONPATH=$DATA_PREP_PYTHONPATH:$PYTHONPATH python -m generative_data_prep pipeline --input_file_path=../data_prep/bloom_ock_100K_each.jsonl --output_path=./bloom_ock_100k_out/ --dev_ratio=0.0 --test_ratio=0.0 --shuffle on_RAM --pretrained_tokenizer=bigscience/bloom --max_seq_length=2048  --input_packing_config full --num_training_splits=8
+PYTHONPATH=$DATA_PREP_PYTHONPATH:$PYTHONPATH python -m generative_data_prep pipeline --input_file_path=../data_prep/bloom_ock_100K_each.jsonl --output_path=./bloom_ock_100k_out/ --dev_ratio=0.0 --test_ratio=0.0 --shuffle on_RAM --pretrained_tokenizer=bigscience/bloom --max_seq_length=2048  --input_packing_config greedy --num_training_splits=8
