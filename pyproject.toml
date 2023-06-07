@@ -8,20 +8,21 @@ name = "sambanova_bloomchat"
 description = "This repo acts as a standard Python template for Python based repositories."
 readme = "README.md"
 # requires-python = ">=3.10"
-license = "LICENSE"
+license = {file = "LICENSE"}
 classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
     "accelerate",
     "deepspeed >= 0.7.3",
-    "deepspeed-mii == 0.0.2",
+    "deepspeed-mii",
     "flask",
     "flask_api",
     "gunicorn",
     "huggingface_hub >= 0.9.0",
     "pydantic",
-    "scikit-learn",
+    "tokenizers",
+    "transformers==4.27.0"
 ]
 dynamic = ["version"]
 
