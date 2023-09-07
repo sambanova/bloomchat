@@ -42,6 +42,9 @@ dev = [
     "setuptools-scm"
     ]
 
+[project.entry-points."timmins.display"]
+inference = "inferency.py"
+
 [tool.setuptools.packages.find]
 where = ["data_prep", "rdu_quick_start", "tokenization_prep", "training"]
 
