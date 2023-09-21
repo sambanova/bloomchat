@@ -43,8 +43,16 @@ Local Environment Setup
         pipenv shell
         pytest
 
-#. If you update ``setup.cfg``, or ``pyproject.toml``, then you'd need to regenerated ``requirements`` files.
-   For this, you would need to have ``docker`` installed on your machine.
+#. If you update ``setup.cfg``, or ``pyproject.toml``
+
+   - ``requirements`` files would need to be regenrated
+
+     - For this, you would need to have ``docker`` installed on your machine.
+   - ``Pipfile.lock`` would need to be regenerated
+
+     .. code-block::
+
+        pipenv run pre-commit run --all-files --hook-stage manual pipenv-lock
 
 Important Python Versions
 *************************
