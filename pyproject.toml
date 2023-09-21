@@ -33,9 +33,6 @@ inference = "inferency.py"
 [tool.setuptools.packages.find]
 where = ["data_prep", "rdu_quick_start", "tokenization_prep", "training"]
 
-# Enable setuptools_scm for automated versioning
-[tool.setuptools_scm]
-
 # Configure Pytest for testing Python code
 [tool.pytest.ini_options]
 pythonpath = [
@@ -85,3 +82,11 @@ exclude = [
     "tests",
     "docs",
 ]
+
+# Configure black for python code formatting
+[tool.black]
+line-length = 120
+
+# Configure hatch for python builds
+[tool.hatch]
+version.source = "vcs"
