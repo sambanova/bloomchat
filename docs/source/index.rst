@@ -1,15 +1,8 @@
-Sambanova Python Template
-=========================
+..
+   Note: Items in this toctree form the top-level navigation. See `api.rst` for the `autosummary` directive, and for why `api.rst` isn't called directly.
 
-
-.. autosummary::
-   :toctree: _autosummary
-   :template: custom-module-template.rst
-   :recursive:
-
-   data_prep
-   tokenization_prep
-
+Table of Contents
+=================
 
 .. toctree::
    :maxdepth: 2
@@ -17,4 +10,9 @@ Sambanova Python Template
    Home page <readme_link>
    Contribution Guide <contributing_link>
    Data Prep <_autosummary/data_prep>
-   Tokeniztion Prep <_autosummary/tokenization_prep>
+   Tokenization Prep <_autosummary/tokenization_prep>
+
+
+Sambanova Bloomchat
+===================
+Welcome to the Sambanova Bloomchat documentation.

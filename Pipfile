@@ -27,7 +27,6 @@ myst-parser = "*"
 setuptools_scm = "*"
 sphinx = ">=7"
 sphinx-autodoc-typehints = "*"
-pydantic-settings = "*"
 
 [tests-packages]
 pre-commit = "==2.20"
