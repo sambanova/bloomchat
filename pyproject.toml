@@ -26,21 +26,6 @@ dependencies = [
 ]
 dynamic = ["version"]
 
-[project.optional-dependencies]
-tests = [
-    "build",
-    "pre-commit >= 2.20",
-    "pytest >= 7.1",
-    "pytest-html",
-    "pytest-cov",
-    "sphinx >= 5.2.3",
-    "sphinx_rtd_theme"
-    ]
-dev = [
-    "build",
-    "twine",
-    "setuptools-scm"
-    ]
 
 [project.entry-points."timmins.display"]
 inference = "inferency.py"
