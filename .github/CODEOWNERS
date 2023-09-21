@@ -5,13 +5,13 @@
 # These owners will be the default owners for everything in
 # the repo. Unless a later match takes precedence
 
-*                           @nlp
+*                           @sambanova/nlp
 
-.circleci                   @sambanova-software/snova-ci
-.github                     @sambanova-software/snova-ci
-docs                        @sambanova-software/snova-ci
-.pre-commit-config.yaml     @sambanova-software/snova-ci
-pyproject.toml              @sambanova-software/snova-ci
-setup.cfg                   @sambanova-software/snova-ci
-Pipfile                     @sambanova-software/snova-ci
-Pipfile.lock                @sambanova-software/snova-ci
+.circleci                   @sambanova/sambanova-ci
+.github                     @sambanova/sambanova-ci
+docs                        @sambanova/sambanova-ci
+.pre-commit-config.yaml     @sambanova/sambanova-ci
+pyproject.toml              @sambanova/sambanova-ci
+setup.cfg                   @sambanova/sambanova-ci
+Pipfile                     @sambanova/sambanova-ci
+Pipfile.lock                @sambanova/sambanova-ci
