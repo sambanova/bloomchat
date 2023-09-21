@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm[toml]"]
-build-backend = "setuptools.build_meta"
+requires = ["setuptools>=67", "wheel>=0.40", "hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
 
 [project]
 # Use "sambanova_" prefix in the package name i.e. the root folder for the source-code
