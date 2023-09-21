@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 # Use "sambanova_" prefix in the package name i.e. the root folder for the source-code
-name = "sambanova_bloomchat"
+name = "sambanova-bloomchat"
 description = "This repo acts as a standard Python template for Python based repositories."
 readme = "README.md"
 # requires-python = ">=3.10"
@@ -51,7 +51,8 @@ addopts = """
 --durations=50
 --html=test_reports/report.html
 --junitxml=test_reports/circleci/pytest/junit.xml
---cov=sambanova_ci_research_mvp
+--cov=data_prep
+--cov=tokenization_prep
 --cov-branch
 --cov-report term
 --cov-report html:test_reports/coverage/pytest_cov.html
