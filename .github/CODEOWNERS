@@ -1,0 +1,17 @@
+# Please use teams as codeowners and refrain from using individuals
+
+# Each line is a file pattern followed by one or more owners.
+
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence
+
+*                           @nlp
+
+.circleci                   @sambanova-software/snova-ci
+.github                     @sambanova-software/snova-ci
+docs                        @sambanova-software/snova-ci
+.pre-commit-config.yaml     @sambanova-software/snova-ci
+pyproject.toml              @sambanova-software/snova-ci
+setup.cfg                   @sambanova-software/snova-ci
+Pipfile                     @sambanova-software/snova-ci
+Pipfile.lock                @sambanova-software/snova-ci
