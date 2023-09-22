@@ -17,16 +17,16 @@ import json
 
 all_items = []
 data_list = [
-    'unified_multi_news.jsonl',
-    'unified_openai_summarize_tldr.jsonl',
-    'unified_scitldr.jsonl',
-    'unified_oa_v3_fixed_plus_safety_fixed.jsonl',
-    'unified_soda_dialog.jsonl',
-    'unified_unifiedskg_instructions_v2.jsonl',
-    'unified_cot_instructions.jsonl',
-    'unified_unatural_instructions.jsonl',
-    'unified_squad_v2.jsonl',
-    'unified_conv_finqa.jsonl',
+    "unified_multi_news.jsonl",
+    "unified_openai_summarize_tldr.jsonl",
+    "unified_scitldr.jsonl",
+    "unified_oa_v3_fixed_plus_safety_fixed.jsonl",
+    "unified_soda_dialog.jsonl",
+    "unified_unifiedskg_instructions_v2.jsonl",
+    "unified_cot_instructions.jsonl",
+    "unified_unatural_instructions.jsonl",
+    "unified_squad_v2.jsonl",
+    "unified_conv_finqa.jsonl",
     "unified_nq.jsonl",
     "unified_plot_screenplay_books_dialog.jsonl",
     "unified_oscar_en_sample_dialog.jsonl",
@@ -47,7 +47,7 @@ for data_path in data_list:
 
     print(data_path)
     try:
-        data = load_dataset("laion/OIG", data_files=data_path, streaming=True)['train']
+        data = load_dataset("laion/OIG", data_files=data_path, streaming=True)["train"]
     except FileNotFoundError:
         print(f"Could not find {data_path} in laion/OIG dataset")
         continue
@@ -58,19 +58,19 @@ for data_path in data_list:
         if ii >= 1000000:
             break
 
-        if 'meta' in item:
+        if "meta" in item:
             # prosocial sometimes produce unsafe answers
             if item["meta"]["source"] == "prosocial":
                 continue
 
         new_item = {
             "prompt": "",
-            "completion": item['text'].strip() + '\n',
+            "completion": item["text"].strip() + "\n",
         }
         item = new_item
 
-        if data_path == 'unified_basic.jsonl':
-            for _ in range(1000): # mk sure basic instructions ocasionally appear
+        if data_path == "unified_basic.jsonl":
+            for _ in range(1000):  # mk sure basic instructions ocasionally appear
                 all_items.append(item)
 
         all_items.append(item)
@@ -78,6 +78,6 @@ for data_path in data_list:
 
 random.shuffle(all_items)
 
-with open('bloom_ock_100K_each.jsonl', 'w') as f:
+with open("bloom_ock_100K_each.jsonl", "w") as f:
     for item in all_items:
-        f.write(json.dumps(item) + '\n')
+        f.write(json.dumps(item) + "\n")

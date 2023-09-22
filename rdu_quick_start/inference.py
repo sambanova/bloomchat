@@ -14,6 +14,7 @@ import argparse
 import json
 from generative_tuning.generative import GenerativePipeline
 
+
 def parse_args() -> argparse.Namespace:
     """Generate args."""
     parser = argparse.ArgumentParser(description="Model args")
@@ -30,9 +31,7 @@ def parse_args() -> argparse.Namespace:
         type=str,
         help="Name of model or path to model. Used in initialize of model class.",
     )
-    parser.add_argument(
-        "--cache_dir", default=None, type=str, help="Cache directory for models."
-    )
+    parser.add_argument("--cache_dir", default=None, type=str, help="Cache directory for models.")
     args = parser.parse_args()
     return args
 
@@ -44,9 +43,7 @@ def main() -> None:
     if not model_name_or_path:
         raise ValueError("Must provide model_name_or_path.")
 
-    generator = GenerativePipeline(
-        kwargs.model_name_or_path, kwargs.pef, cache_dir=kwargs.cache_dir
-    )
+    generator = GenerativePipeline(kwargs.model_name_or_path, kwargs.pef, cache_dir=kwargs.cache_dir)
 
     while True:
         input_text = input("User Input Text: ")
@@ -54,8 +51,15 @@ def main() -> None:
         input_text = input_text.strip()
         modified_input_text = f"<human>: {input_text}\n<bot>:"
 
-        output = generator.predict(modified_input_text, max_tokens_to_generate=512, repetition_penalty=1.2, top_p=0.9, return_completion_only=True, do_sample=False)[0]
-        completion = output['text']
+        output = generator.predict(
+            modified_input_text,
+            max_tokens_to_generate=512,
+            repetition_penalty=1.2,
+            top_p=0.9,
+            return_completion_only=True,
+            do_sample=False,
+        )[0]
+        completion = output["text"]
 
         print(f"Model output text: {completion}")
 
