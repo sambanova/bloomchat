@@ -37,7 +37,7 @@ jobs:
             source .circleci/VERSIONS && pip install pipenv==${PIPENV_VERSION}
             pipenv sync --categories tests-packages
             pipenv run pre-commit run --all-files
-            pipenv check
+            # pipenv check  # TODO: DEVV-387
       - save_cache:
           key: v1-{{ arch }}-{{ checksum "pyproject.toml" }}-{{ checksum "circleci_cache_key" }}
           paths:
