@@ -12,8 +12,8 @@ governing permissions, limitations and restrictions under the License.
 """
 
 import json
-from datasets import load_dataset
 
+from datasets import load_dataset
 
 data = load_dataset("OpenAssistant/oasst1")
 

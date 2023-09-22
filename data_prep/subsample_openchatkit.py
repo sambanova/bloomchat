@@ -11,9 +11,10 @@ BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
 governing permissions, limitations and restrictions under the License.
 """
 
-import random
-from datasets import load_dataset
 import json
+import random
+
+from datasets import load_dataset
 
 all_items = []
 data_list = [
