@@ -111,7 +111,7 @@ And then
 pip install transformers==4.27.0
 ```
 
-You will see messages like this 
+You will see messages like this
 ```
 ERROR: deepspeed-mii 0.0.2 has requirement transformers==4.21.2, but you'll have transformers 4.27.0 which is incompatible.
 Installing collected packages: transformers
@@ -144,13 +144,13 @@ index 9be3c3f..a8ecb1d 100644
 @@ -1,4 +1,5 @@
  from argparse import Namespace
 +from accelerate.utils.modeling import get_max_memory
- 
+
  import torch
- 
+
 @@ -12,6 +13,12 @@ class HFAccelerateModel(Model):
- 
+
          kwargs = {"pretrained_model_name_or_path": args.model_name, "device_map": "auto"}
- 
+
 +        original_max_memory_dict = get_max_memory()
 +
 +        reduce_max_memory_dict = {device_key: int(original_max_memory_dict[device_key] * 0.85) for device_key in original_max_memory_dict}
@@ -172,7 +172,7 @@ index fc903d5..5450236 100644
 @@ -22,6 +22,9 @@ def main() -> None:
      while True:
          input_text = input("Input text: ")
- 
+
 +        input_text = input_text.strip()
 +        modified_input_text = f"<human>: {input_text}\n<bot>:"
 +
@@ -182,10 +182,10 @@ index fc903d5..5450236 100644
 @@ -33,7 +36,7 @@ def main() -> None:
                      print("message =", e_message)
                      continue
- 
+
 -        response = model.generate(text=[input_text], generate_kwargs=generate_kwargs)
 +        response = model.generate(text=[modified_input_text], generate_kwargs=generate_kwargs)
- 
+
          print_rank_0("Output text:", response.text[0])
          print_rank_0("Generated tokens:", response.num_generated_tokens[0])
 
