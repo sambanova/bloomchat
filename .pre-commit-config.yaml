@@ -43,6 +43,7 @@ repos:
   rev: v3.7.0-1
   hooks:
     - id: shfmt         # native (requires/installs Go to build)
+      stages: [manual]
 - repo: local
   hooks:
   - id: pipenv-lock
