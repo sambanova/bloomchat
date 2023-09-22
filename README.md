@@ -1,3 +1,12 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/sambanova/bloomchat/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/sambanova/bloomchat/tree/main)
+[![Python](https://img.shields.io/badge/python-%3E=3.7-blue.svg)](https://www.python.org/)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![flake8](https://img.shields.io/badge/pep8-flake8-blue.svg)](https://github.com/PyCQA/flake8)
+[![bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
+[![isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
+[![mypy](https://img.shields.io/badge/mypy-checked-green.svg)](http://mypy-lang.org/)
+
 <a href="https://sambanova.ai/">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="/docs/source/img/SambaNova-light-logo-1.png" height="60">
