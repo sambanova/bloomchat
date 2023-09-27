@@ -14,15 +14,13 @@ classifiers = [
 ]
 dependencies = [
     "accelerate",
-    "deepspeed >= 0.7.3",
-    "deepspeed-mii",
     "flask",
     "flask_api",
     "gunicorn",
     "huggingface_hub >= 0.9.0",
     "pydantic",
     "tokenizers",
-    "transformers==4.27.0"
+    "transformers == 4.27.0"
 ]
 dynamic = ["version"]
 
