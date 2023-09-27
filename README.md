@@ -104,31 +104,15 @@ NOTE: BLOOMChat is a two step process:
 First create a python virtual environment for these packages
 
 ```
-python3 -m venv bloomchat_venv
-source bloomchat_venv/bin/activate
-pip install --upgrade pip
+pipenv --python 3.9
+pipenv sync
 ```
 
 <!-- Please follow this section [Inference solutions for BLOOM 176B](https://github.com/huggingface/transformers-bloom-inference#bloom-inference-via-command-line) in the Huggingface Tutorial for environment set up and stop before the [BLOOM inference via command-line
 ](https://github.com/huggingface/transformers-bloom-inference#bloom-inference-via-command-line) section. -->
 
-```
-pip install flask flask_api gunicorn pydantic accelerate huggingface_hub>=0.9.0 deepspeed>=0.7.3 deepspeed-mii==0.0.2
-```
-And then
-```
-pip install transformers==4.27.0
-```
 
-You will see messages like this
-```
-ERROR: deepspeed-mii 0.0.2 has requirement transformers==4.21.2, but you'll have transformers 4.27.0 which is incompatible.
-Installing collected packages: transformers
-  Found existing installation: transformers 4.21.2
-    Uninstalling transformers-4.21.2:
-      Successfully uninstalled transformers-4.21.2
-Successfully installed transformers-4.27.0
-```
+# TODO: Please add instructions on how to install `deepspeed` as needed for the bloom-inference.
 
 Now let's git clone the [huggingface/transformers-bloom-inference](https://github.com/huggingface/transformers-bloom-inference) repo.
 ```
