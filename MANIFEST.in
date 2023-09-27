@@ -1,0 +1,22 @@
+# Define which files and folders should be included in the Python package
+
+# Add all files under directories
+graft data_prep
+graft rdu_quick_start
+graft tokenization_prep
+graft training
+graft requirements
+
+# Add all files matching listed patterns
+include pyproject.toml
+include setup.cfg
+include README.rst
+
+# Remove all files under directories
+prune .github
+prune tests
+prune docs
+
+# Remove all files matching listed patterns
+exclude .gitignore
+exclude .pre-commit-config.yaml
