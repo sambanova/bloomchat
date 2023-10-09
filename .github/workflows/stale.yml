@@ -1,0 +1,22 @@
+name: 'Stale PR handler'
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v4  #v4 is the maximum supported by our github version
+        id: stale-pr
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-pr-message: 'This PR is stale because it has been open 20 days with no activity. Remove stale label or comment or this will be closed in 10 days'
+          close-pr-message: 'This PR has been closed and its branch deleted due to inactivity.'
+          days-before-stale: 20
+          days-before-close: 10
+          exempt-pr-labels: 'blocked,must,should,keep'
+          delete-branch: true
+      - name: Print outputs
+        run: echo ${{ join(steps.stale.outputs.*, ',') }}

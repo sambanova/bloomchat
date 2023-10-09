@@ -1,0 +1,32 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[requires]
+python_version = "3.9"
+
+[packages]
+sambanova-generative-data-prep = {editable = true, path = "."}
+
+[build-packages]
+hatch = "*"
+hatch-vcs = "*"
+twine = "*"
+
+[dev-packages]
+ipdb = "*"
+
+[docs-packages]
+ipython = "*"
+nbsphinx = "*"
+myst-parser = "*"
+setuptools_scm = "*"
+sphinx = ">=7"
+sphinx-autodoc-typehints = "*"
+
+[tests-packages]
+pre-commit = "==2.20"
+pytest = ">=7.4"
+pytest-html = "*"
+pytest-cov = "*"

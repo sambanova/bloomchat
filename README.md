@@ -1,7 +1,16 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/sambanova/bloomchat/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/sambanova/bloomchat/tree/main)
+[![Python](https://img.shields.io/badge/python-%3E=3.7-blue.svg)](https://www.python.org/)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![flake8](https://img.shields.io/badge/pep8-flake8-blue.svg)](https://github.com/PyCQA/flake8)
+[![bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
+[![isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
+[![mypy](https://img.shields.io/badge/mypy-checked-green.svg)](http://mypy-lang.org/)
+
 <a href="https://sambanova.ai/">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="/img/SambaNova-light-logo-1.png" height="60">
-  <img alt="Text changing depending on mode. Light: 'So light!' Dark: 'So dark!'" src="/img/SambaNova-dark-logo-1.png" height="60">
+  <source media="(prefers-color-scheme: dark)" srcset="/docs/source/img/SambaNova-light-logo-1.png" height="60">
+  <img alt="Text changing depending on mode. Light: 'So light!' Dark: 'So dark!'" src="/docs/source/img/SambaNova-dark-logo-1.png" height="60">
 </picture>
 </a>
 
@@ -95,31 +104,15 @@ NOTE: BLOOMChat is a two step process:
 First create a python virtual environment for these packages
 
 ```
-python3 -m venv bloomchat_venv
-source bloomchat_venv/bin/activate
-pip install --upgrade pip
+pipenv --python 3.9
+pipenv sync
 ```
 
 <!-- Please follow this section [Inference solutions for BLOOM 176B](https://github.com/huggingface/transformers-bloom-inference#bloom-inference-via-command-line) in the Huggingface Tutorial for environment set up and stop before the [BLOOM inference via command-line
 ](https://github.com/huggingface/transformers-bloom-inference#bloom-inference-via-command-line) section. -->
 
-```
-pip install flask flask_api gunicorn pydantic accelerate huggingface_hub>=0.9.0 deepspeed>=0.7.3 deepspeed-mii==0.0.2
-```
-And then
-```
-pip install transformers==4.27.0
-```
 
-You will see messages like this 
-```
-ERROR: deepspeed-mii 0.0.2 has requirement transformers==4.21.2, but you'll have transformers 4.27.0 which is incompatible.
-Installing collected packages: transformers
-  Found existing installation: transformers 4.21.2
-    Uninstalling transformers-4.21.2:
-      Successfully uninstalled transformers-4.21.2
-Successfully installed transformers-4.27.0
-```
+# TODO: Please add instructions on how to install `deepspeed` as needed for the bloom-inference.
 
 Now let's git clone the [huggingface/transformers-bloom-inference](https://github.com/huggingface/transformers-bloom-inference) repo.
 ```
@@ -144,13 +137,13 @@ index 9be3c3f..a8ecb1d 100644
 @@ -1,4 +1,5 @@
  from argparse import Namespace
 +from accelerate.utils.modeling import get_max_memory
- 
+
  import torch
- 
+
 @@ -12,6 +13,12 @@ class HFAccelerateModel(Model):
- 
+
          kwargs = {"pretrained_model_name_or_path": args.model_name, "device_map": "auto"}
- 
+
 +        original_max_memory_dict = get_max_memory()
 +
 +        reduce_max_memory_dict = {device_key: int(original_max_memory_dict[device_key] * 0.85) for device_key in original_max_memory_dict}
@@ -172,7 +165,7 @@ index fc903d5..5450236 100644
 @@ -22,6 +22,9 @@ def main() -> None:
      while True:
          input_text = input("Input text: ")
- 
+
 +        input_text = input_text.strip()
 +        modified_input_text = f"<human>: {input_text}\n<bot>:"
 +
@@ -182,10 +175,10 @@ index fc903d5..5450236 100644
 @@ -33,7 +36,7 @@ def main() -> None:
                      print("message =", e_message)
                      continue
- 
+
 -        response = model.generate(text=[input_text], generate_kwargs=generate_kwargs)
 +        response = model.generate(text=[modified_input_text], generate_kwargs=generate_kwargs)
- 
+
          print_rank_0("Output text:", response.text[0])
          print_rank_0("Generated tokens:", response.num_generated_tokens[0])
 

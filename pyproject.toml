@@ -1,0 +1,90 @@
+[build-system]
+requires = ["setuptools>=67", "wheel>=0.40", "hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+# Use "sambanova_" prefix in the package name i.e. the root folder for the source-code
+name = "sambanova-bloomchat"
+description = "This repo acts as a standard Python template for Python based repositories."
+readme = "README.md"
+requires-python = ">=3.7"
+license = {file = "LICENSE"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "accelerate",
+    "flask",
+    "flask_api",
+    "gunicorn",
+    "huggingface_hub >= 0.9.0",
+    "pydantic",
+    "tokenizers",
+    "transformers == 4.27.0"
+]
+dynamic = ["version"]
+
+
+[project.entry-points."timmins.display"]
+inference = "inferency.py"
+
+[tool.setuptools.packages.find]
+where = ["data_prep", "rdu_quick_start", "tokenization_prep", "training"]
+
+# Configure Pytest for testing Python code
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
+]
+minversion = "7.0"
+markers = [
+    "fast",
+    "slow",
+]
+addopts = """
+-ra -q -vv
+--durations=50
+--html=test_reports/report.html
+--junitxml=test_reports/circleci/pytest/junit.xml
+--cov=data_prep
+--cov=tokenization_prep
+--cov-branch
+--cov-report term
+--cov-report html:test_reports/coverage/pytest_cov.html
+--cov-report xml:test_reports/coverage/pytest_cov.xml
+"""
+testpaths = [
+    "tests",
+]
+filterwarnings = [
+    "error",
+]
+junit_suite_name = "Pytest"
+junit_duration_report = "call"
+
+# Configure isort for sorting imports automatically
+[tool.isort]
+profile = "black"
+known_first_party = ["sambanova_*"]
+
+[tool.bandit]
+exclude_dirs = [
+    "tests",
+]
+
+# Configure mypy for type-checking in Python code
+[tool.mypy]
+warn_return_any = true
+warn_unused_configs = true
+exclude = [
+    "tests",
+    "docs",
+]
+
+# Configure black for python code formatting
+[tool.black]
+line-length = 120
+
+# Configure hatch for python builds
+[tool.hatch]
+version.source = "vcs"
