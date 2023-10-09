@@ -55,7 +55,7 @@ for data_path in data_list:
 
     cur_data = []
     for ii, item in enumerate(data):
-        
+
         if ii >= 100000:
             break
 
