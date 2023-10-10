@@ -56,7 +56,7 @@ for data_path in data_list:
     cur_data = []
     for ii, item in enumerate(data):
 
-        if ii >= 1000000:
+        if ii >= 100000:
             break
 
         if "meta" in item:
