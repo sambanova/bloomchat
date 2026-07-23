@@ -1,0 +1,5 @@
+# Gitleaks config for bloomchat. Extends the built-in default ruleset.
+title = "bloomchat gitleaks config"
+
+[extend]
+useDefault = true
